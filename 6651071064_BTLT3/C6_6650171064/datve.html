@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Form đặt vé máy bay trực tuyến VietAir">
+  <title>Đặt vé máy bay VietAir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+    <div class="logo">
+      <img src="logo.png" alt="Logo VietAir" height="40">
+    </div>
+
+    <div class="form-card">
+      <h1>Đặt vé máy bay VietAir - Kết quả Bài tập</h1>
+
+      <form action="xu_ly_ve.php" method="POST" id="formDatVe">
+
+        <!-- Datalist dùng chung cho Điểm đi / Điểm đến -->
+        <datalist id="danhsach_thanh_pho">
+          <option value="Hà Nội – HAN">
+          <option value="TP. Hồ Chí Minh – SGN">
+          <option value="Đà Nẵng – DAD">
+          <option value="Nha Trang – CXR">
+          <option value="Phú Quốc – PQC">
+          <option value="Hải Phòng – HPH">
+          <option value="Cần Thơ – VCA">
+        </datalist>
+
+        <section class="step">
+          <h2>1. Thông tin chuyến bay</h2>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label for="diem_di">Điểm đi:</label>
+              <input type="text" name="diem_di" id="diem_di" list="danhsach_thanh_pho" placeholder="Nhập điểm đi">
+            </div>
+
+            <div class="field-group">
+              <label for="diem_den">Điểm đến:</label>
+              <input type="text" name="diem_den" id="diem_den" list="danhsach_thanh_pho" placeholder="Nhập điểm đến">
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1.1rem;">
+            <div class="date-pair">
+              <div class="field-group">
+                <label for="ngay_di">Ngày đi:</label>
+                <input type="date" name="ngay_di" id="ngay_di" required>
+              </div>
+              <div class="field-group">
+                <label for="ngay_ve">Ngày về:</label>
+                <input type="date" name="ngay_ve" id="ngay_ve">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="hang_ghe">Hạng ghế:</label>
+              <select name="hang_ghe" id="hang_ghe">
+                <optgroup label="Phổ thông">
+                  <option value="eco_basic">Phổ thông cơ bản – 1.200.000đ</option>
+                  <option value="eco_flex">Phổ thông linh hoạt – 1.800.000đ</option>
+                </optgroup>
+                <optgroup label="Thương gia">
+                  <option value="biz">Thương gia – 4.500.000đ</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="step">
+          <h2>2. Thông tin hành khách</h2>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label for="nguoi_lon">Số hành khách người lớn:</label>
+              <input type="number" name="nguoi_lon" id="nguoi_lon" min="1" max="9" value="1">
+            </div>
+
+            <div class="field-group">
+              <label for="tre_em">Số trẻ em:</label>
+              <input type="number" name="tre_em" id="tre_em" min="0" max="9" value="0">
+            </div>
+          </div>
+
+          <div class="field-group" style="margin-top: 1.1rem;">
+            <label for="ma_giam">Mã giảm giá:</label>
+            <input type="text" name="ma_giam" id="ma_giam" placeholder="Nhập mã nếu có" list="ma_uu_dai">
+            <datalist id="ma_uu_dai">
+              <option value="SUMMER20">
+              <option value="NEWMEMBER">
+              <option value="HOLIDAY50">
+            </datalist>
+          </div>
+        </section>
+
+        <section class="step">
+          <h2>3. Kết quả ước tính</h2>
+          <div class="result-box">
+            <label for="tong_tien">Tổng tiền ước tính:</label>
+            <output name="tong_tien" id="tong_tien" for="hang_ghe nguoi_lon tre_em">0 VNĐ</output>
+            <div class="result-note">
+              Thẻ &lt;output&gt; dùng để hiển thị kết quả tính toán, thuộc tính <code>for</code> liệt kê id các input liên quan.
+            </div>
+          </div>
+        </section>
+
+        <section class="step">
+          <h2>4. Bảo mật giao dịch</h2>
+          <div class="security-box">
+            <span class="icon">🔒</span>
+            <span>
+              <keygen name="security_key" keytype="rsa"></keygen>
+              – Sinh khóa bảo mật cho phiên giao dịch.
+              <div class="result-note">
+                Hệ thống sẽ tạo một cặp khóa mã hóa để bảo vệ thông tin của bạn.
+                (Keygen đã bị deprecated ở nhiều trình duyệt mới nên không hiển thị được; thẻ chỉ dùng để minh họa cấu trúc.)
+              </div>
+            </span>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="submit">Tìm chuyến bay</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const hangGhe = document.getElementById('hang_ghe');
+    const nguoiLon = document.getElementById('nguoi_lon');
+    const treEm = document.getElementById('tre_em');
+    const maGiam = document.getElementById('ma_giam');
+    const tongTien = document.getElementById('tong_tien');
+
+    const giaVe = {
+      eco_basic: 1200000,
+      eco_flex: 1800000,
+      biz: 4500000
+    };
+
+    const giamGia = {
+      SUMMER20: 0.20,
+      NEWMEMBER: 0.10,
+      HOLIDAY50: 0.50
+    };
+
+    function tinhTongTien() {
+      const gia = giaVe[hangGhe.value] || 0;
+      const soNguoiLon = Number(nguoiLon.value) || 0;
+      const soTreEm = Number(treEm.value) || 0;
+      let tong = gia * soNguoiLon + gia * 0.75 * soTreEm;
+
+      const ma = maGiam.value.trim().toUpperCase();
+      if (giamGia[ma]) {
+        tong = tong * (1 - giamGia[ma]);
+      }
+
+      tongTien.value = Math.round(tong).toLocaleString('vi-VN') + ' VNĐ';
+    }
+
+    [hangGhe, nguoiLon, treEm, maGiam].forEach(el => {
+      el.addEventListener('input', tinhTongTien);
+      el.addEventListener('change', tinhTongTien);
+    });
+
+    tinhTongTien();
+  </script>
+
+</body>
+</html>

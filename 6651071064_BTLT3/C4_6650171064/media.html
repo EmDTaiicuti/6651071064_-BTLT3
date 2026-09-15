@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang bài học video và audio thử nghiệm của MelodyVN Online">
+  <title>MelodyVN Online – Bài học</title>
+  <style>
+    :root {
+      --ink: #1c2530;
+      --muted: #5c6773;
+      --line: #e1e4e9;
+      --accent: #2f6fa8;
+      --paper: #ffffff;
+      --header-bg: #f0f1f3;
+      --table-head: #f4e3c7;
+      --table-alt: #faf1de;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: var(--header-bg);
+      text-align: center;
+      padding: 1.75rem 1.5rem 1.25rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+
+    header h2 {
+      margin: 0.35rem 0 0;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    /* ---------- LAYOUT ---------- */
+    main {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    section {
+      background: var(--paper);
+    }
+
+    section h2 {
+      font-size: 1.15rem;
+      margin: 0 0 0.9rem;
+    }
+
+    #video-baihoc video {
+      width: 100%;
+      max-width: 640px;
+      height: auto;
+      border-radius: 6px;
+      background: #000;
+      display: block;
+    }
+
+    #video-baihoc p.mota {
+      margin-top: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    #nghethu {
+      margin-top: 2rem;
+    }
+
+    .audio-item {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .audio-item:last-child { border-bottom: none; }
+
+    .audio-item p.ten-bai {
+      margin: 0 0 0.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .audio-item audio {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .audio-item p.ghichu {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ---------- ASIDE ---------- */
+    aside {
+      background: #fbfaf7;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+    }
+
+    aside h3 {
+      margin: 0 0 0.9rem;
+      font-size: 1.05rem;
+    }
+
+    aside table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    aside caption {
+      display: none;
+    }
+
+    aside thead th {
+      background: var(--table-head);
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--line);
+    }
+
+    aside tbody td {
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--line);
+    }
+
+    aside tbody tr:nth-child(odd) td {
+      background: var(--table-alt);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #eef0f2;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 780px) {
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <hgroup>
+      <h1>MelodyVN Online</h1>
+      <h2>Học nhạc mọi lúc mọi nơi</h2>
+    </hgroup>
+  </header>
+
+  <main>
+    <div>
+      <section id="video-baihoc">
+        <h2>Bài học: Hợp âm cơ bản Guitar</h2>
+
+        <video width="640" height="360" controls poster="thumbnail.jpg" preload="metadata">
+          <source src="bai_hoc_guitar.mp4" type="video/mp4">
+          <source src="bai_hoc_guitar.webm" type="video/webm">
+          <p>Trình duyệt của bạn không hỗ trợ video.</p>
+        </video>
+
+        <p class="mota">Học cách bấm các hợp âm guitar phổ biến nhất trong bài học video này.</p>
+      </section>
+
+      <section id="nghethu">
+        <h2>Nghe thử giai điệu mẫu</h2>
+
+        <div class="audio-item">
+          <p class="ten-bai">Canon in D – Piano</p>
+          <audio controls preload="none">
+            <source src="canon_piano.mp3" type="audio/mpeg">
+            <source src="canon_piano.ogg" type="audio/ogg">
+            <p>Trình duyệt không hỗ trợ audio.</p>
+          </audio>
+        </div>
+
+        <div class="audio-item">
+          <p class="ten-bai">Fur Elise – Piano</p>
+          <audio controls autoplay loop>
+            <source src="furelise_piano.mp3" type="audio/mpeg">
+            <source src="furelise_piano.ogg" type="audio/ogg">
+            <p>Trình duyệt không hỗ trợ audio.</p>
+          </audio>
+          <p class="ghichu">Thuộc tính <code>loop</code> giúp bản nhạc tự động phát lại từ đầu ngay khi kết thúc, lặp liên tục cho tới khi người dùng dừng lại.</p>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <h3>Lịch học tuần này</h3>
+      <table>
+        <caption>Lịch học tuần này</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ngày</th>
+            <th scope="col">Buổi học</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Thứ Hai</td>
+            <td>Guitar Cơ bản</td>
+          </tr>
+          <tr>
+            <td>Thứ Tư</td>
+            <td>Piano Nhập môn</td>
+          </tr>
+          <tr>
+            <td>Thứ Sáu</td>
+            <td>Hợp âm nâng cao</td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Trung tâm âm nhạc MelodyVN - 123 Đường Nhạc, Quận Âm - Email: info@melodyvn.com - Hotline: 1900 6789</p>
+  </footer>
+
+</body>
+</html>

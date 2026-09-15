@@ -1,0 +1,165 @@
+:root {
+  --ink: #1c2530;
+  --muted: #5c6773;
+  --line: #d9dfe4;
+  --blue: #1f6fb2;
+  --blue-dark: #17588f;
+  --orange: #e8772c;
+  --bg: #cfe6f5;
+  --card: #ffffff;
+  --section-bg: #f6f9fb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  padding: 2rem 1rem;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.logo .vietair-vi { color: var(--blue); }
+.logo .vietair-air { color: var(--orange); }
+.logo .plane { color: var(--orange); font-size: 1.4rem; }
+
+.form-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.75rem 2rem 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.form-card h1 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+section.step {
+  margin-bottom: 1.5rem;
+}
+
+section.step h2 {
+  font-size: 1.02rem;
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.field-group label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.date-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-pair .field-group { flex: 1; }
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+select[multiple] {
+  min-height: 110px;
+}
+
+.result-box {
+  background: var(--section-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.95rem;
+}
+
+.result-box output {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin: 0 0.35rem;
+}
+
+.result-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.security-box {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--section-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  align-items: flex-start;
+}
+
+.security-box .icon { font-size: 1.2rem; }
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: var(--orange);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button[type="submit"]:hover { background: #d3661f; }
+
+@media (max-width: 560px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .form-card { padding: 1.4rem 1.3rem; }
+}
